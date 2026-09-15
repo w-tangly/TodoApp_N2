@@ -1,0 +1,26 @@
+name: Pipeline de CI
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  testes:
+    name: Testes unitarios
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar a linguagem
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar as dependencias
+        run: |
+          pip install -r requirements.txt
+
+      - name: Rodar os testes unitarios
+        run: |
+          pytest tests/unit
