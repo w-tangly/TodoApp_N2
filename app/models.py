@@ -1,5 +1,5 @@
 class Todo:
-    def __init__(self, id: int, title: str, description: str = "", completed: bool = True):
+    def __init__(self, id: int, title: str, description: str = "", completed: bool = False):
         if not title or not title.strip():
             raise ValueError("O título da tarefa não pode ser vazio.")
         
