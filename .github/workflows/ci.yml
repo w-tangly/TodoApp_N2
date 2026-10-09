@@ -47,6 +47,11 @@ jobs:
     
   testes-e2e:
     name: Testes e2e
+
+    needs: 
+      - testes-unitarios
+      - testes-integracao
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do código
